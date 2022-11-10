@@ -10,7 +10,7 @@ export default defineComponent({
   },
   setup(props, context) {
     return () => {
-      return h(props.tag, [h('div', { class: 'container' }, [context.slots.default?.()])])
+      return h(props.tag, { class: 'container' }, [context.slots.default?.()])
     }
   }
 })

@@ -1,26 +1,29 @@
 <template>
-  <q-layout view="hHh lpR fFf">
-    <q-header elevated class="bg-primary text-white text-left">
+  <q-layout view="hHh lpR fFf" class="main-bg">
+    <q-header class="bg-header text-black">
       <q-toolbar>
-        <q-toolbar-title> Lịch sử khám </q-toolbar-title>
+        <q-avatar>
+          <q-img src="@/assets/img/logo.jpg" alt="The main logo" />
+        </q-avatar>
+
+        <q-toolbar-title>Quasar Framework</q-toolbar-title>
+        <q-space />
+        <q-tabs no-caps>
+          <q-route-tab name="home" label="Home" to="/" exact />
+          <q-route-tab name="trips" label="Trips" to="/trips" exact />
+          <q-route-tab name="galleries" label="Galleries" to="/galleries" exact />
+          <q-route-tab name="album" label="Album" to="/album" exact />
+        </q-tabs>
+        <q-separator color="grey" vertical inset />
+        <q-btn stretch flat icon="light_mode" />
       </q-toolbar>
     </q-header>
 
-    <q-footer class="bg-white text-primary">
-      <q-tabs
-        v-model="tab"
-        no-caps
-        active-color="primary"
-        indicator-color="transparent"
-        class="text-grey">
-        <q-tab name="encounter" label="Lịch sử khám" icon="local_hospital" />
-      </q-tabs>
-    </q-footer>
-
     <q-page-container class="bg-layout">
-      <q-page class="container">
+      <q-page>
+        <q-img v-if="isDisplayBanner" :src="bannerUrl" alt="banner thumbnail" class="h-[300px]" />
         <router-view v-slot="{ Component, route }">
-          <transition name="slide-fade" mode="out-in">
+          <transition name="slide-fade-from-bottom" mode="out-in">
             <component :key="route.name || ''" :is="Component" />
           </transition>
         </router-view>
@@ -29,16 +32,31 @@
   </q-layout>
 </template>
 <script lang="ts">
-import { defineComponent, ref } from 'vue'
+import { computed, defineComponent } from 'vue'
+import { useEnhancer } from '@/app/enhancer'
+import { RouteName } from '@/app/router'
 
 export default defineComponent({
   name: 'DefaultLayout',
   setup() {
-    const tab = ref('encounter')
+    const { route } = useEnhancer()
+
+    const bannerUrl = computed(() => {
+      if (route.name === RouteName.Home)
+        return 'https://images.unsplash.com/photo-1528164344705-47542687000d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1192&q=80'
+      return 'https://cdn.quasar.dev/img/parallax1.jpg'
+    })
+
+    const isDisplayBanner = computed(
+      () => route.name === RouteName.Home || route.name === RouteName.Trips
+    )
 
     return {
-      tab,
+      bannerUrl,
+      isDisplayBanner,
     }
   },
 })
 </script>
+<style lang="scss" scoped>
+</style>

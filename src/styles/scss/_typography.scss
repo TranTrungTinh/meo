@@ -5,5 +5,16 @@
   background: $muted;
 }
 .bg-layout {
-  background: #e3e3e3;
+  background: #ffffff; //#e3e3e3;
+}
+.bg-header {
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+.bg-glass {
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.75), 70%, rgba(255, 255, 255, 0.25));
+  backdrop-filter: blur(15px) saturate(1000%);
 }
