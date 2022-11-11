@@ -9,10 +9,10 @@ export default defineComponent({
   <section class="flex justify-between items-end">
     <div class="flex items-center gap-4">
       <q-avatar size="160px" class="shadow-2">
-        <img src="https://cdn.quasar.dev/img/avatar6.jpg" alt="main avatar" />
+        <q-img src="https://pbs.twimg.com/media/E8fDKE_UcAMqR3s.jpg" alt="main avatar" />
       </q-avatar>
       <div class="mw-[200px]">
-        <h1 class="text-h5 mb-2">Punny</h1>
+        <h1 class="text-h5 mb-2 drop-shadow-xl">Tokyo</h1>
         <div class="relative-position">
           <q-avatar
             v-for="n in 5"

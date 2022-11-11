@@ -2164,6 +2164,13 @@ flatted@^3.1.0:
   resolved "https://registry.yarnpkg.com/flatted/-/flatted-3.2.7.tgz#609f39207cb614b89d0765b477cb2d437fbf9787"
   integrity sha512-5nqDSxl8nn5BSNxyR3n4I6eDmbolI6WT+QqR547RwxQapgjQBmtktdP+HTBb/a/zLsbzERTONyUB5pefh5TtjQ==
 
+flipbook-vue@^1.0.0-beta.2:
+  version "1.0.0-beta.2"
+  resolved "https://registry.yarnpkg.com/flipbook-vue/-/flipbook-vue-1.0.0-beta.2.tgz#2f285a84b991980c3679028555b7dca6a481d1ae"
+  integrity sha512-sv86/rQ29e0yuk4Ll8TZ0HiZnbukaGZLSIZzW7M+r/wvX5CMzjJj8BeRjWR2k77IAt5Y3i1p3kC2LGae+0YYaA==
+  dependencies:
+    rematrix "^0.7.2"
+
 follow-redirects@^1.15.0:
   version "1.15.2"
   resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.15.2.tgz#b460864144ba63f2681096f274c4e57026da2c13"
@@ -3740,6 +3747,11 @@ regexpp@^3.2.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/regexpp/-/regexpp-3.2.0.tgz#0425a2768d8f23bad70ca4b90461fa2f1213e1b2"
   integrity sha512-pq2bWo9mVD43nbts2wGv17XLiNLya+GklZ8kaDLV2Z08gDCsGpnKn9BFMepvWuHCbyVvY7J5o5+BVvoQbmlJLg==
+
+rematrix@^0.7.2:
+  version "0.7.2"
+  resolved "https://registry.yarnpkg.com/rematrix/-/rematrix-0.7.2.tgz#09b59118a6b46fc054ff64b6992e4865f5569077"
+  integrity sha512-NYLmE17dX15eUPhngLMTKlRYwATxEhcRdn9LKtk/iOXHxDKglCZnD2MrMLKwLlB5FX8u9kF/9yMhlQJpeDcuPw==
 
 repeating@^2.0.0:
   version "2.0.1"

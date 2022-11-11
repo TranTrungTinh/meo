@@ -1,100 +1,38 @@
 <template>
   <container class="relative-position">
     <div class="h-[130px]">
-      <div class="absolute -top-[15%] full-width">
+      <div class="absolute -top-[60px] full-width">
         <user-header />
         <q-separator class="my-2" />
       </div>
     </div>
-    <section class="bg-transparent">
+    <section class="q-mb-md">
       <q-item dense class="q-px-none q-mb-sm">
         <q-item-section>
-          <q-item-label class="text-body1 text-uppercase">浮光掠影 | photography</q-item-label>
+          <q-item-label class="text-body1 text-uppercase">浮光掠影 | photography (20)</q-item-label>
         </q-item-section>
       </q-item>
-      <div class="row q-col-gutter-sm">
-        <div class="col-3">
-          <q-card class="bg-glass">
-            <q-item>
-              <q-item-section avatar>
-                <q-avatar>
-                  <img src="https://cdn.quasar.dev/img/avatar2.jpg" />
-                </q-avatar>
-              </q-item-section>
-
-              <q-item-section>
-                <q-item-label>Title</q-item-label>
-                <q-item-label caption>Subhead</q-item-label>
-              </q-item-section>
-            </q-item>
-
-            <q-img src="https://placeimg.com/500/300/nature" />
-          </q-card>
-        </div>
-        <div class="col-3">
-          <q-card class="bg-glass">
-            <q-item>
-              <q-item-section avatar>
-                <q-avatar>
-                  <img src="https://cdn.quasar.dev/img/avatar2.jpg" />
-                </q-avatar>
-              </q-item-section>
-
-              <q-item-section>
-                <q-item-label>Title</q-item-label>
-                <q-item-label caption>Subhead</q-item-label>
-              </q-item-section>
-            </q-item>
-
-            <q-img src="https://placeimg.com/500/300/nature" />
-          </q-card>
-        </div>
-        <div class="col-3">
-          <q-card class="bg-glass">
-            <q-item>
-              <q-item-section avatar>
-                <q-avatar>
-                  <img src="https://cdn.quasar.dev/img/avatar2.jpg" />
-                </q-avatar>
-              </q-item-section>
-
-              <q-item-section>
-                <q-item-label>Title</q-item-label>
-                <q-item-label caption>Subhead</q-item-label>
-              </q-item-section>
-            </q-item>
-
-            <q-img src="https://placeimg.com/500/300/nature" />
-          </q-card>
-        </div>
-        <div class="col-3">
-          <q-card class="bg-glass">
-            <q-item>
-              <q-item-section avatar>
-                <q-avatar>
-                  <img src="https://cdn.quasar.dev/img/avatar2.jpg" />
-                </q-avatar>
-              </q-item-section>
-
-              <q-item-section>
-                <q-item-label>Title</q-item-label>
-                <q-item-label caption>Subhead</q-item-label>
-              </q-item-section>
-            </q-item>
-
-            <q-img src="https://placeimg.com/500/300/nature" />
-          </q-card>
-        </div>
-      </div>
+      <list-image-thumbnail />
+    </section>
+    <section class="q-mb-md">
+      <q-item dense class="q-px-none q-mb-sm">
+        <q-item-section>
+          <q-item-label class="text-body1 text-uppercase">长路迢迢 | Tour (7) </q-item-label>
+        </q-item-section>
+      </q-item>
+      <list-image-card />
     </section>
   </container>
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'
 import UserHeader from '@/components/widget/user-header.vue'
+import ListImageCard from '@/components/widget/list-image-card.vue'
+import ListImageThumbnail from '@/components/widget/list-image-thumbnail.vue'
+
 export default defineComponent({
   name: 'RootPage',
-  components: { UserHeader },
+  components: { UserHeader, ListImageCard, ListImageThumbnail },
 })
 </script>
 

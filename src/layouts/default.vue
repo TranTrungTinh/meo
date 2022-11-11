@@ -1,27 +1,39 @@
 <template>
-  <q-layout view="hHh lpR fFf" class="main-bg">
+  <q-layout view="hHh lpR fFf" class="bg-layout q-pb-md">
     <q-header class="bg-header text-black">
       <q-toolbar>
         <q-avatar>
           <q-img src="@/assets/img/logo.jpg" alt="The main logo" />
         </q-avatar>
 
-        <q-toolbar-title>Quasar Framework</q-toolbar-title>
+        <q-toolbar-title :class="isDark ? 'text-white' : 'text-dark'"> My Cat </q-toolbar-title>
         <q-space />
-        <q-tabs no-caps>
+        <q-tabs no-caps class="text-primary">
           <q-route-tab name="home" label="Home" to="/" exact />
           <q-route-tab name="trips" label="Trips" to="/trips" exact />
           <q-route-tab name="galleries" label="Galleries" to="/galleries" exact />
           <q-route-tab name="album" label="Album" to="/album" exact />
         </q-tabs>
         <q-separator color="grey" vertical inset />
-        <q-btn stretch flat icon="light_mode" />
+        <q-btn
+          stretch
+          flat
+          :icon="isDark ? 'dark_mode' : 'light_mode'"
+          :color="isDark ? 'white' : 'dark'"
+          @click="toggleDarkMode" />
       </q-toolbar>
     </q-header>
 
-    <q-page-container class="bg-layout">
+    <q-footer class="bg-header text-primary">
+      <div class="text-center">COPYRIGHT © 2022 | My Cat</div>
+    </q-footer>
+
+    <q-page-container>
       <q-page>
-        <q-img v-if="isDisplayBanner" :src="bannerUrl" alt="banner thumbnail" class="h-[300px]" />
+        <transition name="fade">
+          <q-parallax v-if="isDisplayBanner" :src="bannerUrl" :height="300" />
+        </transition>
+
         <router-view v-slot="{ Component, route }">
           <transition name="slide-fade-from-bottom" mode="out-in">
             <component :key="route.name || ''" :is="Component" />
@@ -39,7 +51,7 @@ import { RouteName } from '@/app/router'
 export default defineComponent({
   name: 'DefaultLayout',
   setup() {
-    const { route } = useEnhancer()
+    const { route, toggleDarkMode, isDark } = useEnhancer()
 
     const bannerUrl = computed(() => {
       if (route.name === RouteName.Home)
@@ -54,6 +66,8 @@ export default defineComponent({
     return {
       bannerUrl,
       isDisplayBanner,
+      isDark,
+      toggleDarkMode,
     }
   },
 })
